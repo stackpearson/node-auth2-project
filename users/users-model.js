@@ -4,6 +4,7 @@ function find() {
     return db('users').select('id', 'username', 'department').orderBy('id');
 }
 
+
 function findBy(filter) {
     return db('users').where(filter).orderBy('id');
 }
