@@ -1,10 +1,14 @@
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 const router = require('express').Router();
+const Users = require('./users-model.js');
 
 router.get('/', (req, res) => {
-    res.json({userRouter: 'up'});
+    Users.find()
+        .then(users => {
+            res.status(200).json(users);
+        })
+        .catch(err => res.send(err))
 })
 
 
